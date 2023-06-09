@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Blockly Workspace</title>
+    <link rel="stylesheet" href="test.css">
+    <script src="https://unpkg.com/blockly/blockly.min.js"></script>
+    <script src="https://unpkg.com/blockly/blocks_compressed.js"></script>
+    <script src="https://unpkg.com/blockly/javascript_compressed.js"></script>
+    <script src="customblocks.js"></script>
+    <script src="custom_category.js"></script>
+</head>
+
+<body>
+    <div>
+        <div class="top-container-run-btn">
+            <button id="run_btn" onclick="runCode()">
+                Run
+            </button>
+        </div>
+        <div>
+            <div id="blocklyDiv">
+
+            </div>
+
+            <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox">
+                <category name="Motion" colour="#E4A5FF">
+                    <!-- motion blocks to be here... -->
+                </category>
+                <sep></sep>
+                <category name="Function" colour="#EA906C">
+                    <!-- Function blocks to be here -->
+                </category>
+                <sep></sep>
+                <category name="Logical" colour="#B31312">
+                    <!-- Logical blocks to be here -->
+                </category>
+                <sep></sep>
+                <category name="Arithmetic" colour="#C2DEDC">
+                    <!-- Arithmetic blocks to be here -->
+                </category>
+                <sep></sep>
+                <category name="Conversation" colour="#F1C376">
+                    <!-- Conversation blocks to be here -->
+                    <block type="print" />
+                    <block type="say" />
+                </category>
+                <sep></sep>
+                <!-- <category name="FOR" colour="#5ba55b">
+                    <block type="for_block" />
+                </category>
+                <sep></sep>
+                <category name="if" colour="#2563eb">
+                    <block type="condtional_if_block" />
+                </category>
+                <sep></sep>
+                <category name="else if" colour="#2453ec">
+                    <block type="else_if" />
+                </category>
+                <sep></sep>
+                <category name="else" colour="#2453ec">
+                    <block type="else" />
+                </category>
+                <sep></sep>
+                <category name="variable" colour="#5b67a5">
+                    <block type="set" />
+                </category>
+                <sep></sep>
+                <category name="For" colour="#745ba5">
+                    <block type="for" />
+                </category>
+                <sep></sep>
+                <category name="Program" colour="#a5745b">
+                    <block type="color_change">
+                        <field name="color">R</field>
+                        <field name="choice">ON</field>
+                    </block>
+                </category>
+                <sep></sep> -->
+                <category name="Example" colour="#5b67a5">
+                    <block type="color_change">
+                        <field name="color">R</field>
+                        <field name="choice">ON</field>
+                        <next>
+                            <block type="for"></block>
+                        </next>
+                    </block>
+                    <block type="set">
+                        <field name="NAME">A</field>
+                        <next>
+                            <block type="for">
+                                <next>
+                                    <block type="print"></block>
+                                </next>
+                            </block>
+                        </next>
+                    </block>
+                    <block type="set">
+                        <field name="NAME">A</field>
+                        <next>
+                            <block type="print"></block>
+                        </next>
+                    </block>
+                    <block type="for">
+                        <next>
+                            <block type="print"></block>
+                        </next>
+                    </block>
+                </category>
+            </xml>
+            <div id="output">
+                <img src="cat image.png" id="image-style">
+            </div>
+            <script>
+                const blocklyArea = document.getElementById('blocklyArea');
+                const blocklyDiv = document.getElementById('blocklyDiv');
+                const workspace = Blockly.inject(blocklyDiv,
+                    { toolbox: document.getElementById('toolbox') });
+                const onresize = function (e) {
+                    // Compute the absolute coordinates and dimensions of blocklyArea.
+                    const element = blocklyArea;
+                    let x = 0;
+                    let y = 0;
+                    do {
+                        x += element.offsetLeft;
+                        y += element.offsetTop;
+                        element = element.offsetParent;
+                    } while (element);
+                    // Position blocklyDiv over blocklyArea.
+                    blocklyDiv.style.left = x + 'px';
+                    blocklyDiv.style.top = y + 'px';
+                    blocklyDiv.style.width = blocklyArea.offsetWidth + 'px';
+                    blocklyDiv.style.height = blocklyArea.offsetHeight + 'px';
+                    Blockly.svgResize(workspace);
+                };
+                window.addEventListener('resize', onresize, false);
+                onresize();
+                function runCode() {
+                    window.LoopTrap = 1000;
+                    Blockly.JavaScript.INFINITE_LOOP_TRAP =
+                        'if (—window. LoopTrap==0) throw "Infinite loop.";\n';
+                    var code = Blockly.JavaScript.workspaceToCode(workspace);
+                    Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
+                    try {
+                        eval(code);
+                    } catch (e) {
+                        alert(e);
+                    }
+                }
+            </script>
+        </div>
+    </div>
+</body>
+
+</html>

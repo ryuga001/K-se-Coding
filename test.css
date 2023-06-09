@@ -1,0 +1,55 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+#blocklyDiv {
+    height: 90vh;
+    width: 50%;
+    border: 2px solid lightblue;
+}
+
+#toolbox {
+    display: none;
+}
+
+#run_btn {
+    margin: 5px;
+    height: 3rem;
+    width: 200px;
+    background: blueviolet;
+    font-size: 22px;
+    font-weight: bold;
+    color: white;
+    border-radius: 15px;
+    border: none;
+}
+
+#run_btn:hover {
+    background-color: rgb(117, 14, 213);
+    border: 1px solid black;
+}
+
+
+.top-container-run-btn {
+    background-color: #a9dade;
+    padding-left: 45%;
+
+}
+
+#output {
+    position: absolute;
+    background-color: #F6F7C1;
+    width: 49%;
+    height: 90vh;
+    left: 50.5%;
+    top: 8.55%;
+}
+
+#image-style {
+    width: 10rem;
+    height: 10rem;
+    position: absolute;
+    top: 30%;
+    left: 30%;
+}
