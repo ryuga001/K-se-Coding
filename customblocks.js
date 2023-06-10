@@ -133,12 +133,64 @@ Blockly.Blocks['for_block'] = {
         this.setHelpUrl("");
     }
 };
+Blockly.Blocks['move_right'] = {
+    init: function () {
+        this.appendValueInput("movename")
+            .setCheck(null)
+            .appendField("Move ")
+            .appendField(new Blockly.FieldNumber(0, -200, 200), "pos");
+        this.setInputsInline(false);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(230);
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};
 /* Block Function    */
 // testing
+
+// Rotate Block ...
+Blockly.Blocks['rotate'] = {
+    init: function () {
+        this.appendValueInput("anglename")
+            .setCheck(null)
+            .appendField("Rotate")
+            .appendField(new Blockly.FieldAngle(90), "angle_input");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(230);
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};
+Blockly.JavaScript['rotate'] = function (block) {
+    var angle_angle_input = block.getFieldValue('angle_input');
+    var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
+    // TODO: Assemble JavaScript into code variable.
+    var code = '...;\n';
+    return code;
+};
+
+Blockly.JavaScript['move_right'] = function (block) {
+    var number_pos = block.getFieldValue('pos');
+    var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
+    // TODO: Assemble JavaScript into code variable.
+    // const fun = () => {
+    // var imgObj = document.getElementById("image_style").style.right;
+
+    // // }
+    // imgObj = imgObj + 100 + 'px';
+    var code = 'document.getElementById("image_style").style.left = document.getElementById("image_style").style.left + 100 + "px" ;\n'
+    return code;
+};
+
+
+
 Blockly.JavaScript['for_block'] = function (block) {
     var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
     // TODO: Assemble JavaScript into code variable.
-    var code = console.log("for block invoked!");
+    // var code = console.log("for block invoked!");
     return code;
 };
 Blockly.JavaScript['else'] = function (block) {

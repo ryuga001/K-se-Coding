@@ -26,6 +26,11 @@
             <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox">
                 <category name="Motion" colour="#E4A5FF">
                     <!-- motion blocks to be here... -->
+                    <block type="move_right"></block>
+                    <next>
+
+                        <block type="Rotate"></block>
+                    </next>
                 </category>
                 <sep></sep>
                 <category name="Function" colour="#EA906C">
@@ -77,7 +82,7 @@
                     </block>
                 </category>
                 <sep></sep> -->
-                <category name="Example" colour="#5b67a5">
+                <category name=" Program Example" colour="#5b67a5">
                     <block type="color_change">
                         <field name="color">R</field>
                         <field name="choice">ON</field>
@@ -109,7 +114,7 @@
                 </category>
             </xml>
             <div id="output">
-                <img src="cat image.png" id="image-style">
+                <img src="cat image.png" id="image_style">
             </div>
             <script>
                 const blocklyArea = document.getElementById('blocklyArea');

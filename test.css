@@ -1,6 +1,7 @@
 * {
     margin: 0px;
     padding: 0px;
+    /* background-color: #a9dade; */
 }
 
 #blocklyDiv {
@@ -46,10 +47,12 @@
     top: 8.55%;
 }
 
-#image-style {
+#image_style {
     width: 10rem;
     height: 10rem;
     position: absolute;
-    top: 30%;
-    left: 30%;
+    /* top: 30%;
+    left: 30%; */
+    top: 0px;
+    left: 45px;
 }
