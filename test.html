@@ -24,21 +24,17 @@
             </div>
 
             <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox">
-                <category name="Move" colour="#E4A5FF">
+                <category name="Motion" colour="#E4A5FF">
                     <!-- motion blocks to be here... -->
                     <block type="move_right"></block>
-
-
-
-
+                    <block type="move_up"></block>
+                    <block type="move_down"></block>
+                    <block type="Go_To_Block"></block>
                 </category>
                 <sep></sep>
                 <category name="Rotate" colour="#E4A5FF">
-
-
-
-                    <block type="Rotate"></block>
-
+                    <block type="_rotate_clockwise"></block>
+                    <block type="_rotate_anti_clockwise"></block>
                 </category>
                 <sep></sep>
                 <category name="Function" colour="#EA906C">
@@ -55,8 +51,9 @@
                 <sep></sep>
                 <category name="Conversation" colour="#F1C376">
                     <!-- Conversation blocks to be here -->
-                    <block type="print" />
-                    <block type="say" />
+                    <!-- <block type="print_"></block> -->
+                    <block type="print"></block>
+                    <!-- <block type="say" /> -->
                 </category>
                 <sep></sep>
                 <!-- <category name="FOR" colour="#5ba55b">
@@ -164,5 +161,6 @@
         </div>
     </div>
 </body>
+<script src="test.js"></script>
 
 </html>

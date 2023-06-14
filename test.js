@@ -1,29 +1,33 @@
-Blockly.Blocks['draw_circle'] = {
-    init: function () {
-        this.appendDummyInput()
-            .appendField("Draw Circle");
-        this.appendValueInput("radius")
-            .setCheck(null)
-            .appendField("Radius");
-        this.appendValueInput("x")
-            .setCheck(null)
-            .appendField("X axis");
-        this.appendValueInput("y")
-            .setCheck(null)
-            .appendField("Y axis");
-        this.setColour(150);
-        this.setTooltip("");
-        this.setHelpUrl("");
+function CustomAlert() {
+    this.alert = function (message, title) {
+        document.body.innerHTML = document.body.innerHTML + '<div id="dialogoverlay"></div><div id="dialogbox" class="slit-in-vertical"><div><div id="dialogboxhead"></div><div id="dialogboxbody"></div><div id="dialogboxfoot"></div></div></div>';
+
+        let dialogoverlay = document.getElementById('dialogoverlay');
+        let dialogbox = document.getElementById('dialogbox');
+
+        let winH = window.innerHeight;
+        dialogoverlay.style.height = winH + "px";
+
+        dialogbox.style.top = "100px";
+
+        dialogoverlay.style.display = "block";
+        dialogbox.style.display = "block";
+
+        document.getElementById('dialogboxhead').style.display = 'block';
+
+        if (typeof title === 'undefined') {
+            document.getElementById('dialogboxhead').style.display = 'none';
+        } else {
+            document.getElementById('dialogboxhead').innerHTML = '<i class="fa fa-exclamation-circle" aria-hidden="true"></i> ' + title;
+        }
+        document.getElementById('dialogboxbody').innerHTML = message;
+        document.getElementById('dialogboxfoot').innerHTML = '<button class="pure-material-button-contained active" onclick="customAlert.ok()">OK</button>';
     }
-};
 
-//Generated stub
+    this.ok = function () {
+        document.getElementById('dialogbox').style.display = "none";
+        document.getElementById('dialogoverlay').style.display = "none";
+    }
+}
 
-Blockly.JavaScript['draw_circle'] = function (block) {
-    var value_radius = Blockly.JavaScript.valueToCode(block, 'radius', Blockly.JavaScript.ORDER_ATOMIC);
-    var value_x = Blockly.JavaScript.valueToCode(block, 'x', Blockly.JavaScript.ORDER_ATOMIC);
-    var value_y = Blockly.JavaScript.valueToCode(block, 'y', Blockly.JavaScript.ORDER_ATOMIC);
-    // TODO: Assemble JavaScript into code variable.
-    var code = '...;\n';
-    return code;
-};
+let customAlert = new CustomAlert();
