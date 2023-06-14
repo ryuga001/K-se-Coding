@@ -137,11 +137,11 @@ Blockly.Blocks['move_right'] = {
     init: function () {
         this.appendValueInput("movename")
             .setCheck(null)
-            .appendField("Move ")
-            .appendField(new Blockly.FieldNumber(0, -200, 200), "pos");
+            .appendField("खिसकाना")
+            .appendField(new Blockly.FieldNumber(0, -10000, 10000), "pos");
         this.setInputsInline(false);
-        this.setPreviousStatement(true, null);
-        this.setNextStatement(true, null);
+        this.setPreviousStatement(false, null);
+        this.setNextStatement(false, null);
         this.setColour(230);
         this.setTooltip("");
         this.setHelpUrl("");
@@ -171,22 +171,15 @@ Blockly.JavaScript['rotate'] = function (block) {
     var code = '...;\n';
     return code;
 };
-
 Blockly.JavaScript['move_right'] = function (block) {
     var number_pos = block.getFieldValue('pos');
-    var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
-    // TODO: Assemble JavaScript into code variable.
-    // const fun = () => {
-    // var imgObj = document.getElementById("image_style").style.right;
-
-    // // }
-    // imgObj = imgObj + 100 + 'px';
-    var code = 'document.getElementById("image_style").style.left = document.getElementById("image_style").style.left + 100 + "px" ;\n'
+    var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ADDITION);
+    var ip = document.getElementById("image_style").style.left + number_pos;
+    console.log(ip);
+    var code = `document.getElementById("image_style").style.left = ${ip} + "px" ; \n`
+    console.log(document.getElementById("image_style").style.left);
     return code;
 };
-
-
-
 Blockly.JavaScript['for_block'] = function (block) {
     var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
     // TODO: Assemble JavaScript into code variable.
@@ -225,7 +218,6 @@ Blockly.JavaScript['print'] = function (block) {
     var code = alert("Hello From क se Coding");
     return code;
 };
-
 Blockly.JavaScript['set'] = function (block) {
     var dropdown_name = block.getFieldValue('NAME');
     var value_set = Blockly.JavaScript.valueToCode(block, 'set', Blockly.JavaScript.ORDER_ATOMIC);
@@ -233,7 +225,6 @@ Blockly.JavaScript['set'] = function (block) {
     var code = '...;\n';
     return code;
 };
-
 Blockly.JavaScript['for'] = function (block) {
     var value_for_1 = Blockly.JavaScript.valueToCode(block, 'for_1', Blockly.JavaScript.ORDER_ATOMIC);
     var value_for_2 = Blockly.JavaScript.valueToCode(block, 'for_2', Blockly.JavaScript.ORDER_ATOMIC);
@@ -241,7 +232,6 @@ Blockly.JavaScript['for'] = function (block) {
     var code = '...;\n';
     return code;
 };
-
 Blockly.JavaScript['color_change'] = function (block) {
     var dropdown_color = block.getFieldValue('color');
     var dropdown_choice = block.getFieldValue('choice');
