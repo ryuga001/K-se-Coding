@@ -30,6 +30,11 @@
                     <block type="move_up"></block>
                     <block type="move_down"></block>
                     <block type="Go_To_Block"></block>
+                    <block type="set_directionx"></block>
+                    <block type="set_directiony"></block>
+                    <block type="changex"></block>
+                    <block type="changey"></block>
+                    <!-- <block type="EdgeBounce"></block> -->
                 </category>
                 <sep></sep>
                 <category name="Rotate" colour="#E4A5FF">
@@ -119,7 +124,7 @@
                 </category>
             </xml>
             <div id="output">
-                <img src="cat image.png" id="image_style">
+                <img src="cat image.png" draggable="true" id="image_style">
             </div>
             <script>
                 const blocklyArea = document.getElementById('blocklyArea');

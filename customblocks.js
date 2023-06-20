@@ -242,6 +242,60 @@ Blockly.Blocks['Go_To_Block'] = {
         this.setHelpUrl("");
     }
 };
+Blockly.Blocks['set_directionx'] = {
+    init: function () {
+        this.appendValueInput("set_directionx")
+            .setCheck(null)
+            .appendField("X निर्देशांक सेट करें :")
+            .appendField(new Blockly.FieldNumber(0), "x-cordinate");
+        this.setColour(230);
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};
+Blockly.Blocks['set_directiony'] = {
+    init: function () {
+        this.appendValueInput("set_directiony")
+            .setCheck(null)
+            .appendField("Y निर्देशांक सेट करें :")
+            .appendField(new Blockly.FieldNumber(0), "y-cordinate");
+        this.setColour(230);
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};
+Blockly.Blocks['changey'] = {
+    init: function () {
+        this.appendValueInput("changey")
+            .setCheck("Number")
+            .appendField("Y द्वारा बदलें")
+            .appendField(new Blockly.FieldNumber(10), "value");
+        this.setColour(60);
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};
+Blockly.Blocks['changex'] = {
+    init: function () {
+        this.appendValueInput("changex")
+            .setCheck("Number")
+            .appendField("X द्वारा बदलें")
+            .appendField(new Blockly.FieldNumber(10), "value");
+        this.setColour(60);
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};
+// Blockly.Blocks['EdgeBounce'] = {
+//     init: function () {
+//         this.appendValueInput("EdgeBounce")
+//             .setCheck(null)
+//             .appendField("if on edge bounce");
+//         this.setColour(230);
+//         this.setTooltip("");
+//         this.setHelpUrl("");
+//     }
+// };
 Blockly.JavaScript['move_right'] = function (block) {
     var number_pos = block.getFieldValue('pos');
     // var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ADDITION);
@@ -272,7 +326,46 @@ Blockly.JavaScript['Go_To_Block'] = function (block) {
     document.getElementById("image_style").style.top = ${y} + "px" ;`
     return code;
 };
-
+Blockly.JavaScript['set_directionx'] = function (block) {
+    var x = block.getFieldValue('x-cordinate');
+    // var value_x_coordinate = Blockly.JavaScript.valueToCode(block, 'x-coordinate', Blockly.JavaScript.ORDER_ATOMIC);
+    // TODO: Assemble JavaScript into code variable.
+    var code = `document.getElementById("image_style").style.left = ${x} + "px"`;
+    return code;
+};
+Blockly.JavaScript['set_directiony'] = function (block) {
+    var y = block.getFieldValue('y-cordinate');
+    // var value_x_coordinate = Blockly.JavaScript.valueToCode(block, 'x-coordinate', Blockly.JavaScript.ORDER_ATOMIC);
+    // TODO: Assemble JavaScript into code variable.
+    var code = `document.getElementById("image_style").style.top = ${y} + "px"`;
+    return code;
+};
+Blockly.JavaScript['changey'] = function (block) {
+    var y = block.getFieldValue('value');
+    // var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
+    // TODO: Assemble JavaScript into code variable.
+    var ip = document.getElementById("image_style").offsetTop - y;
+    var code = `document.getElementById("image_style").style.top = ${ip} + "px" ; \n`
+    return code;
+};
+Blockly.JavaScript['changex'] = function (block) {
+    var x = block.getFieldValue('value');
+    // var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
+    // TODO: Assemble JavaScript into code variable.
+    var ip = document.getElementById("image_style").offsetLeft + x;
+    var code = `document.getElementById("image_style").style.left = ${ip} + "px" ; \n`
+    return code;
+};
+// Blockly.JavaScript['EdgeBounce'] = function (block) {
+//     var value = Blockly.JavaScript.valueToCode(block, 'EdgeBounce', Blockly.JavaScript.ORDER_ATOMIC);
+//     var pos = document.getElementById("image_style").offsetLeft === 592 ? 'true' : 'false';
+//     var x = documnet.getElementById("image_style").offsetLeft - 50;
+//     var code = `if(${pos}){
+//         document.getElementById("image_style").style.left = ${x};
+//         document.getElementById("image_style").style.transform= 'rotate(180deg);
+//     }`
+//     return code;
+// };
 // ROTATATION BLOCKS -->
 
 
