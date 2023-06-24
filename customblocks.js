@@ -1,187 +1,187 @@
 
 
-Blockly.Blocks['set'] = {
-    init: function () {
-        this.appendValueInput("set")
-            .setCheck(null)
-            .appendField("मान लेना")
-            .appendField(new Blockly.FieldDropdown([["a", "A"], ["b", "B"], ["c", "C"]]), "NAME")
-            .appendField("की");
-        this.setPreviousStatement(true, null);
-        this.setNextStatement(true, null);
-        this.setColour(230);
-        this.setTooltip("");
-        this.setHelpUrl("");
-    }
-};
+// Blockly.Blocks['set'] = {
+//     init: function () {
+//         this.appendValueInput("set")
+//             .setCheck(null)
+//             .appendField("मान लेना")
+//             .appendField(new Blockly.FieldDropdown([["a", "A"], ["b", "B"], ["c", "C"]]), "NAME")
+//             .appendField("की");
+//         this.setPreviousStatement(true, null);
+//         this.setNextStatement(true, null);
+//         this.setColour(230);
+//         this.setTooltip("");
+//         this.setHelpUrl("");
+//     }
+// };
 
-Blockly.Blocks['for'] = {
-    init: function () {
-        this.appendValueInput("for_1")
-            .setCheck(null)
-            .appendField("के लिए अ");
-        this.appendValueInput("for_2")
-            .setCheck(null)
-            .appendField("अ <");
-        this.appendDummyInput()
-            .appendField("अ++");
-        this.setInputsInline(true);
-        this.setPreviousStatement(true, null);
-        this.setNextStatement(true, null);
-        this.setColour(230);
-        this.setTooltip("");
-        this.setHelpUrl("");
-    }
-};
+// Blockly.Blocks['for'] = {
+//     init: function () {
+//         this.appendValueInput("for_1")
+//             .setCheck(null)
+//             .appendField("के लिए अ");
+//         this.appendValueInput("for_2")
+//             .setCheck(null)
+//             .appendField("अ <");
+//         this.appendDummyInput()
+//             .appendField("अ++");
+//         this.setInputsInline(true);
+//         this.setPreviousStatement(true, null);
+//         this.setNextStatement(true, null);
+//         this.setColour(230);
+//         this.setTooltip("");
+//         this.setHelpUrl("");
+//     }
+// };
 
-Blockly.Blocks['color_change'] = {
-    init: function () {
-        this.appendDummyInput()
-            .appendField("रंग पसंद करो")
-            .appendField(new Blockly.FieldDropdown([["लाल", "R"], [" हरा", "G"], [" नीला", "B"]]), "color")
-            .appendField(new Blockly.FieldDropdown([["शुरू", "ON"], ["बंद", "OFF"], ["option", "OPTIONNAME"]]), "choice");
-        this.setPreviousStatement(true, null);
-        this.setNextStatement(true, null);
-        this.setColour(15);
-        this.setTooltip("");
-        this.setHelpUrl("");
-    }
-};
+// Blockly.Blocks['color_change'] = {
+//     init: function () {
+//         this.appendDummyInput()
+//             .appendField("रंग पसंद करो")
+//             .appendField(new Blockly.FieldDropdown([["लाल", "R"], [" हरा", "G"], [" नीला", "B"]]), "color")
+//             .appendField(new Blockly.FieldDropdown([["शुरू", "ON"], ["बंद", "OFF"], ["option", "OPTIONNAME"]]), "choice");
+//         this.setPreviousStatement(true, null);
+//         this.setNextStatement(true, null);
+//         this.setColour(15);
+//         this.setTooltip("");
+//         this.setHelpUrl("");
+//     }
+// };
 
-Blockly.Blocks['color_change'] = {
-    init: function () {
-        this.appendDummyInput()
-            .appendField("रंग पसंद करो")
-            .appendField(new Blockly.FieldDropdown([["लाल", "R"], [" हरा", "G"], [" नीला", "B"]]), "color")
-            .appendField(new Blockly.FieldDropdown([["शुरू", "ON"], ["बंद", "OFF"], ["option", "OPTIONNAME"]]), "choice");
-        this.setPreviousStatement(true, null);
-        this.setNextStatement(true, null);
-        this.setColour(15);
-        this.setTooltip("");
-        this.setHelpUrl("");
-    }
-};
+// Blockly.Blocks['color_change'] = {
+//     init: function () {
+//         this.appendDummyInput()
+//             .appendField("रंग पसंद करो")
+//             .appendField(new Blockly.FieldDropdown([["लाल", "R"], [" हरा", "G"], [" नीला", "B"]]), "color")
+//             .appendField(new Blockly.FieldDropdown([["शुरू", "ON"], ["बंद", "OFF"], ["option", "OPTIONNAME"]]), "choice");
+//         this.setPreviousStatement(true, null);
+//         this.setNextStatement(true, null);
+//         this.setColour(15);
+//         this.setTooltip("");
+//         this.setHelpUrl("");
+//     }
+// };
 
-Blockly.Blocks['say'] = {
-    init: function () {
-        this.appendValueInput("say")
-            .setCheck(null)
-            .appendField("कहना");
-        this.setPreviousStatement(true, null);
-        this.setNextStatement(true, null);
-        this.setColour(330);
-        this.setTooltip("");
-        this.setHelpUrl("");
-    }
-};
+// Blockly.Blocks['say'] = {
+//     init: function () {
+//         this.appendValueInput("say")
+//             .setCheck(null)
+//             .appendField("कहना");
+//         this.setPreviousStatement(true, null);
+//         this.setNextStatement(true, null);
+//         this.setColour(330);
+//         this.setTooltip("");
+//         this.setHelpUrl("");
+//     }
+// };
 
-Blockly.Blocks['condtional_if_block'] = {
-    init: function () {
-        this.appendValueInput("x")
-            .setCheck(null)
-            .appendField("अगर");
-        this.setPreviousStatement(true, null);
-        this.setNextStatement(true, null);
-        this.setColour(230);
-        this.setTooltip("");
-        this.setHelpUrl("");
-    }
-};
-Blockly.Blocks['else_if'] = {
-    init: function () {
-        this.appendValueInput("NAME")
-            .setCheck(null)
-            .appendField("else if");
-        this.setPreviousStatement(true, null);
-        this.setNextStatement(true, null);
-        this.setColour(230);
-        this.setTooltip("");
-        this.setHelpUrl("");
-    }
-};
-Blockly.Blocks['else'] = {
-    init: function () {
-        this.appendValueInput("ELSE")
-            .setCheck(null)
-            .appendField("else");
-        this.setInputsInline(false);
-        this.setPreviousStatement(true, null);
-        this.setNextStatement(true, null);
-        this.setColour(230);
-        this.setTooltip("");
-        this.setHelpUrl("");
-    }
-};
-Blockly.Blocks['for_block'] = {
-    init: function () {
-        this.appendValueInput("NAME")
-            .setCheck(null)
-            .appendField("for");
-        this.setColour(230);
-        this.setTooltip("");
-        this.setHelpUrl("");
-    }
-};
+// Blockly.Blocks['condtional_if_block'] = {
+//     init: function () {
+//         this.appendValueInput("x")
+//             .setCheck(null)
+//             .appendField("अगर");
+//         this.setPreviousStatement(true, null);
+//         this.setNextStatement(true, null);
+//         this.setColour(230);
+//         this.setTooltip("");
+//         this.setHelpUrl("");
+//     }
+// };
+// Blockly.Blocks['else_if'] = {
+//     init: function () {
+//         this.appendValueInput("NAME")
+//             .setCheck(null)
+//             .appendField("else if");
+//         this.setPreviousStatement(true, null);
+//         this.setNextStatement(true, null);
+//         this.setColour(230);
+//         this.setTooltip("");
+//         this.setHelpUrl("");
+//     }
+// };
+// Blockly.Blocks['else'] = {
+//     init: function () {
+//         this.appendValueInput("ELSE")
+//             .setCheck(null)
+//             .appendField("else");
+//         this.setInputsInline(false);
+//         this.setPreviousStatement(true, null);
+//         this.setNextStatement(true, null);
+//         this.setColour(230);
+//         this.setTooltip("");
+//         this.setHelpUrl("");
+//     }
+// };
+// Blockly.Blocks['for_block'] = {
+//     init: function () {
+//         this.appendValueInput("NAME")
+//             .setCheck(null)
+//             .appendField("for");
+//         this.setColour(230);
+//         this.setTooltip("");
+//         this.setHelpUrl("");
+//     }
+// };
 
-/* Block Function    */
-// testing
+// /* Block Function    */
+// // testing
 
 
 
-Blockly.JavaScript['for_block'] = function (block) {
-    var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
-    // TODO: Assemble JavaScript into code variable.
-    // var code = console.log("for block invoked!");
-    return code;
-};
-Blockly.JavaScript['else'] = function (block) {
-    var value_name = Blockly.JavaScript.valueToCode(block, 'ELSE', Blockly.JavaScript.ORDER_ATOMIC);
-    // TODO: Assemble JavaScript into code variable.
-    var code = '...;\n';
-    return code;
-};
-Blockly.JavaScript['else_if'] = function (block) {
-    var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
-    // TODO: Assemble JavaScript into code variable.
-    var code = '...;\n';
-    return code;
-};
-Blockly.JavaScript['say'] = function (block) {
-    var statements_hello_ = Blockly.JavaScript.statementToCode(block, 'say!', Blockly.JavaScript.ORDER_ATOMIC);
-    // TODO: Assemble JavaScript into code variable.
-    var code = alert("HELLO THERE!");
-    return code;
-};
-Blockly.JavaScript['condtional_if_block'] = function (block) {
-    var value_x = Blockly.JavaScript.valueToCode(block, 'x', Blockly.JavaScript.ORDER_ATOMIC);
-    var statements_name = Blockly.JavaScript.statementToCode(block, 'NAME');
-    // TODO: Assemble JavaScript into code variable.
-    var code = '...;\n';
-    return code;
-};
-// 
+// Blockly.JavaScript['for_block'] = function (block) {
+//     var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
+//     // TODO: Assemble JavaScript into code variable.
+//     // var code = console.log("for block invoked!");
+//     return code;
+// };
+// Blockly.JavaScript['else'] = function (block) {
+//     var value_name = Blockly.JavaScript.valueToCode(block, 'ELSE', Blockly.JavaScript.ORDER_ATOMIC);
+//     // TODO: Assemble JavaScript into code variable.
+//     var code = '...;\n';
+//     return code;
+// };
+// Blockly.JavaScript['else_if'] = function (block) {
+//     var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
+//     // TODO: Assemble JavaScript into code variable.
+//     var code = '...;\n';
+//     return code;
+// };
+// Blockly.JavaScript['say'] = function (block) {
+//     var statements_hello_ = Blockly.JavaScript.statementToCode(block, 'say!', Blockly.JavaScript.ORDER_ATOMIC);
+//     // TODO: Assemble JavaScript into code variable.
+//     var code = alert("HELLO THERE!");
+//     return code;
+// };
+// Blockly.JavaScript['condtional_if_block'] = function (block) {
+//     var value_x = Blockly.JavaScript.valueToCode(block, 'x', Blockly.JavaScript.ORDER_ATOMIC);
+//     var statements_name = Blockly.JavaScript.statementToCode(block, 'NAME');
+//     // TODO: Assemble JavaScript into code variable.
+//     var code = '...;\n';
+//     return code;
+// };
+// // 
 
-Blockly.JavaScript['set'] = function (block) {
-    var dropdown_name = block.getFieldValue('NAME');
-    var value_set = Blockly.JavaScript.valueToCode(block, 'set', Blockly.JavaScript.ORDER_ATOMIC);
-    // TODO: Assemble JavaScript into code variable.
-    var code = '...;\n';
-    return code;
-};
-Blockly.JavaScript['for'] = function (block) {
-    var value_for_1 = Blockly.JavaScript.valueToCode(block, 'for_1', Blockly.JavaScript.ORDER_ATOMIC);
-    var value_for_2 = Blockly.JavaScript.valueToCode(block, 'for_2', Blockly.JavaScript.ORDER_ATOMIC);
-    // TODO: Assemble JavaScript into code variable.
-    var code = '...;\n';
-    return code;
-};
-Blockly.JavaScript['color_change'] = function (block) {
-    var dropdown_color = block.getFieldValue('color');
-    var dropdown_choice = block.getFieldValue('choice');
-    // TODO: Assemble JavaScript into code variable.
-    var code = '...;\n';
-    return code;
-};
+// Blockly.JavaScript['set'] = function (block) {
+//     var dropdown_name = block.getFieldValue('NAME');
+//     var value_set = Blockly.JavaScript.valueToCode(block, 'set', Blockly.JavaScript.ORDER_ATOMIC);
+//     // TODO: Assemble JavaScript into code variable.
+//     var code = '...;\n';
+//     return code;
+// };
+// Blockly.JavaScript['for'] = function (block) {
+//     var value_for_1 = Blockly.JavaScript.valueToCode(block, 'for_1', Blockly.JavaScript.ORDER_ATOMIC);
+//     var value_for_2 = Blockly.JavaScript.valueToCode(block, 'for_2', Blockly.JavaScript.ORDER_ATOMIC);
+//     // TODO: Assemble JavaScript into code variable.
+//     var code = '...;\n';
+//     return code;
+// };
+// Blockly.JavaScript['color_change'] = function (block) {
+//     var dropdown_color = block.getFieldValue('color');
+//     var dropdown_choice = block.getFieldValue('choice');
+//     // TODO: Assemble JavaScript into code variable.
+//     var code = '...;\n';
+//     return code;
+// };
 
 
 
@@ -406,6 +406,35 @@ Blockly.Blocks['_rotate_anti_clockwise'] = {
         this.setHelpUrl("");
     }
 };
+Blockly.Blocks['flip'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("पलटना")
+            .appendField(new Blockly.FieldDropdown([["समस्तरीय", "left-right-option"], ["सीधा", "allround-option"], ["घूमो मत", "dontrotate-option"]]), "option");
+        this.setColour(315);
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};
+
+Blockly.JavaScript['flip'] = function (block) {
+    document.getElementById("image_style").classList.remove("flip");
+
+    var option = block.getFieldValue('option');
+
+    var code1 = `document.getElementById("image_style").classList.add("flip");`
+    var code2 = `document.getElementById("image_style").style.transform = "rotate(180deg)";`
+    var code3 = `document.getElementById("image_style").style.transform = "rotate(0deg)";`
+
+    if (option === "left-right-option") {
+        return code1;
+    } else if (option === "allround-option") {
+        return code2;
+    } else {
+        return code3;
+    }
+};
+
 let angle_rotate_anti_clockwise = 0;
 Blockly.JavaScript['_rotate_anti_clockwise'] = function (block) {
     var x = -block.getFieldValue('angle_input');
@@ -413,7 +442,7 @@ Blockly.JavaScript['_rotate_anti_clockwise'] = function (block) {
     // TODO: Assemble JavaScript into code variable.
     // console.log(x);
     angle_rotate_anti_clockwise += x;
-    var code = `document.getElementById("image_style").style.transform= 'rotate(${angle_rotate_anti_clockwise}deg)'`;
+    var code = `document.getElementById("image_style").style.transform = 'rotate(${angle_rotate_anti_clockwise}deg)'`;
     return code;
 };
 
@@ -434,24 +463,91 @@ Blockly.JavaScript['_rotate_anti_clockwise'] = function (block) {
 //     var value_ptr = block.getFieldValue('text_input');
 //     // var value_text_print = Blockly.JavaScript.valueToCode(block, 'text_print', Blockly.JavaScript.ORDER_ATOMIC);
 //     // TODO: Assemble JavaScript into code variable.
-//     var code = customAlert.alert(`${value_ptr}`, 'From k se coding !');
+//     var code = customAlert.alert(`${ value_ptr } `, 'From k se coding !');
 //     return code;
 // };
 
+// Blockly.Blocks['print'] = {
+//     init: function () {
+//         this.appendValueInput("ptr")
+//             .setCheck(null)
+//             .appendField("प्रिंट (Hello From क se Coding)");
+//         this.setPreviousStatement(true, null);
+//         this.setNextStatement(true, null);
+//         this.setColour(135);
+//         this.setTooltip("");
+//         this.setHelpUrl("");
+//     }
+// };
 Blockly.Blocks['print'] = {
     init: function () {
-        this.appendValueInput("ptr")
-            .setCheck(null)
-            .appendField("प्रिंट (Hello From क se Coding)");
+        this.appendDummyInput()
+            .appendField("PRINT : ")
+            .appendField(new Blockly.FieldTextInput("Hello!"), "text");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(135);
+        this.setColour(230);
         this.setTooltip("");
         this.setHelpUrl("");
     }
 };
-
 Blockly.JavaScript['print'] = function (block) {
-    var code = customAlert.alert(`Hello!`, 'From k se coding !');
+
+
+    // TODO: Assemble JavaScript into code variable.
+    const fun = () => {
+        var text = block.getFieldValue('text');
+        let l = `${text.length}`
+        let canvas = document.getElementById("mycanva");
+        const c = canvas.getContext("2d");
+        c.clearRect(0, 0, 762, 660);
+        c.font = "25px Arial";
+        c.fillText(`${text}`, 50, 50);
+        // c.lineJoin = 'round';
+        c.lineWidth = '2';
+        c.strokeStyle = 'black';
+        c.strokeRect(20, 20, 150 + 5 * parseInt(l), 50);
+        // console.log(l);
+    }
+    var code = `${fun()}`
+    return code;
+
+};
+Blockly.Blocks['say'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("SAY ")
+            .appendField(new Blockly.FieldTextInput("Hello!"), "text")
+            .appendField("FOR")
+            .appendField(new Blockly.FieldNumber(0), "time")
+            .appendField("sec");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(200);
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};
+Blockly.JavaScript['say'] = function (block) {
+    // var text = block.getFieldValue('text');
+    const fun = () => {
+        var text = block.getFieldValue('text');
+        var time = block.getFieldValue('time');
+        let l = `${text.length}`
+        let canvas = document.getElementById("mycanva");
+        const c = canvas.getContext("2d");
+        c.clearRect(0, 0, 762, 660);
+        c.font = "25px Arial";
+        c.fillText(`${text}`, 50, 50);
+        // c.lineJoin = 'round';
+        c.lineWidth = '2';
+        c.strokeStyle = 'black';
+        c.strokeRect(20, 20, 150 + 5 * parseInt(l), 50);
+        // console.log(l);
+        setTimeout(() => {
+            c.clearRect(0, 0, 762, 660);
+        }, time * 1000)
+    }
+    var code = `${fun()}`
     return code;
 };

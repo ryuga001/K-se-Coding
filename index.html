@@ -40,6 +40,7 @@
                 <category name="Rotate" colour="#E4A5FF">
                     <block type="_rotate_clockwise"></block>
                     <block type="_rotate_anti_clockwise"></block>
+                    <block type="flip"></block>
                 </category>
                 <sep></sep>
                 <category name="Function" colour="#EA906C">
@@ -56,9 +57,8 @@
                 <sep></sep>
                 <category name="Conversation" colour="#F1C376">
                     <!-- Conversation blocks to be here -->
-                    <!-- <block type="print_"></block> -->
                     <block type="print"></block>
-                    <!-- <block type="say" /> -->
+                    <block type="say" />
                 </category>
                 <sep></sep>
                 <!-- <category name="FOR" colour="#5ba55b">
@@ -124,7 +124,8 @@
                 </category>
             </xml>
             <div id="output">
-                <img src="cat image.png" draggable="true" id="image_style">
+                <img src="cat2.png" draggable="true" id="image_style">
+                <canvas id="mycanva" width="752px" height="660px" style="background-color: #F6F7C1;"></canvas>
             </div>
             <script>
                 const blocklyArea = document.getElementById('blocklyArea');
