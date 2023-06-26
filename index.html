@@ -58,7 +58,9 @@
                 <category name="Conversation" colour="#F1C376">
                     <!-- Conversation blocks to be here -->
                     <block type="print"></block>
-                    <block type="say" />
+                    <block type="say"></block>
+                    <block type="think"></block>
+                    <block type="thinkaloud"></block>
                 </category>
                 <sep></sep>
                 <!-- <category name="FOR" colour="#5ba55b">
@@ -125,7 +127,7 @@
             </xml>
             <div id="output">
                 <img src="cat2.png" draggable="true" id="image_style">
-                <canvas id="mycanva" width="752px" height="660px" style="background-color: #F6F7C1;"></canvas>
+                <canvas id="mycanva" width="752px" height="660px"></canvas>
             </div>
             <script>
                 const blocklyArea = document.getElementById('blocklyArea');
