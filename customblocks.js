@@ -426,3 +426,63 @@ Blockly.JavaScript['thinkaloud'] = function (block) {
     var code = `${fun()}`
     return code;
 };
+
+
+// LOGICAL BLOCKS 
+Blockly.Blocks['if_else'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("अगर")
+            .appendField(new Blockly.FieldTextInput("x"), "x")
+            .appendField("  > ")
+            .appendField(new Blockly.FieldTextInput("y"), "y")
+            .appendField("then");
+        this.appendStatementInput("st")
+            .setCheck(null);
+        this.appendDummyInput()
+            .appendField("ELSE");
+        this.appendStatementInput("st2")
+            .setCheck(null);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(315);
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};
+Blockly.JavaScript['if_else'] = function (block) {
+    var x = block.getFieldValue('x');
+    var y = block.getFieldValue('y');
+    var st = Blockly.JavaScript.statementToCode(block, 'st');
+    var st2 = Blockly.JavaScript.statementToCode(block, 'st2');
+    if (x > y) {
+        return st;
+    }
+    else return st2;
+};
+Blockly.Blocks['if'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("अगर")
+            .appendField(new Blockly.FieldTextInput("x"), "x")
+            .appendField("  > ")
+            .appendField(new Blockly.FieldTextInput("y"), "y")
+            .appendField("then");
+        this.appendStatementInput("st")
+            .setCheck(null);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(315);
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};
+Blockly.JavaScript['if'] = function (block) {
+    var x = block.getFieldValue('x');
+    var y = block.getFieldValue('y');
+    var st = Blockly.JavaScript.statementToCode(block, 'st');
+    if (x > y) {
+        return st;
+    }
+    else return " ";
+};
