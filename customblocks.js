@@ -254,6 +254,11 @@ function Circle(x, y, r) {
         c.stroke();
     }
 }
+function ClearCanva() {
+    let canvas = document.getElementById("mycanva");
+    const c = canvas.getContext("2d");
+    c.clearRect(0, 0, 762, 660);
+}
 Blockly.Blocks['print'] = {
     init: function () {
         this.appendDummyInput()
@@ -436,11 +441,11 @@ Blockly.Blocks['if_else'] = {
             .appendField(new Blockly.FieldTextInput("x"), "x")
             .appendField("  > ")
             .appendField(new Blockly.FieldTextInput("y"), "y")
-            .appendField("then");
+            .appendField("तब");
         this.appendStatementInput("st")
             .setCheck(null);
         this.appendDummyInput()
-            .appendField("ELSE");
+            .appendField("अन्यथा");
         this.appendStatementInput("st2")
             .setCheck(null);
         this.setPreviousStatement(true, null);
@@ -451,6 +456,7 @@ Blockly.Blocks['if_else'] = {
     }
 };
 Blockly.JavaScript['if_else'] = function (block) {
+    ClearCanva();
     var x = block.getFieldValue('x');
     var y = block.getFieldValue('y');
     var st = Blockly.JavaScript.statementToCode(block, 'st');
@@ -467,7 +473,7 @@ Blockly.Blocks['if'] = {
             .appendField(new Blockly.FieldTextInput("x"), "x")
             .appendField("  > ")
             .appendField(new Blockly.FieldTextInput("y"), "y")
-            .appendField("then");
+            .appendField("तब");
         this.appendStatementInput("st")
             .setCheck(null);
         this.setPreviousStatement(true, null);
@@ -478,6 +484,7 @@ Blockly.Blocks['if'] = {
     }
 };
 Blockly.JavaScript['if'] = function (block) {
+    ClearCanva();
     var x = block.getFieldValue('x');
     var y = block.getFieldValue('y');
     var st = Blockly.JavaScript.statementToCode(block, 'st');
@@ -485,4 +492,257 @@ Blockly.JavaScript['if'] = function (block) {
         return st;
     }
     else return " ";
+};
+
+Blockly.Blocks['IF'] = {
+    init: function () {
+        this.appendStatementInput("NAME")
+            .setCheck(null)
+            .appendField("if");
+        this.appendStatementInput("NAME")
+            .setCheck(null)
+            .appendField("else");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(230);
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};
+javascript.javascriptGenerator.forBlock['IF'] = function (block, generator) {
+    var st = generator.statementToCode(block, 'st');
+    var st2 = generator.statementToCode(block, 'st2');
+    console.log(st);
+    console.log(st2);
+    if (st == 'true') {
+        return st2;
+    } else {
+        return '';
+    }
+};
+
+Blockly.Blocks['repeat'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("repeat")
+            .appendField(new Blockly.FieldTextInput("5"), "i");
+        this.appendStatementInput("st")
+            .setCheck(null)
+            .appendField("do");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(315);
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};
+Blockly.JavaScript['repeat'] = function (block) {
+    var i = block.getFieldValue('i');
+    var st = Blockly.JavaScript.statementToCode(block, 'st');
+    return st;
+};
+
+
+// operators 
+Blockly.Blocks['greater_than'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldTextInput("1"), "a")
+            .appendField(" > ")
+            .appendField(new Blockly.FieldTextInput("0"), "b");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(230);
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};
+javascript.javascriptGenerator.forBlock['greater_than'] = function (block, generator) {
+    var a = block.getFieldValue('a');
+    var b = block.getFieldValue('b');
+    var code1 = true;
+    var code2 = false;
+    if (a > b) {
+        return code1;
+    } else {
+        return code2;
+    }
+};
+Blockly.Blocks['lesser_than'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldTextInput("1"), "a")
+            .appendField(" < ")
+            .appendField(new Blockly.FieldTextInput("0"), "b");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(230);
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};
+javascript.javascriptGenerator.forBlock['lesser_than'] = function (block, generator) {
+    var a = block.getFieldValue('a');
+    var b = block.getFieldValue('b');
+    var code1 = true;
+    var code2 = false;
+    if (a < b) {
+        return code2;
+    } else {
+        return code1;
+    }
+};
+Blockly.Blocks['equals_to'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldTextInput("1"), "a")
+            .appendField(" = ")
+            .appendField(new Blockly.FieldTextInput("0"), "b");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(230);
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};
+javascript.javascriptGenerator.forBlock['equals_to'] = function (block, generator) {
+    var a = block.getFieldValue('a');
+    var b = block.getFieldValue('b');
+    var code1 = true;
+    var code2 = false;
+    if (a == b) {
+        return code1;
+    } else {
+        return code2;
+    }
+};
+Blockly.Blocks['add'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldNumber(0), "a")
+            .appendField("+")
+            .appendField(new Blockly.FieldNumber(0), "b");
+        this.setColour(230);
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};
+javascript.javascriptGenerator.forBlock['add'] = function (block, generator) {
+    var a = block.getFieldValue('a');
+    var b = block.getFieldValue('b');
+    var code = a + b;
+    console.log(code);
+    return code;
+};
+Blockly.Blocks['sub'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldNumber(0), "a")
+            .appendField("-")
+            .appendField(new Blockly.FieldNumber(0), "b");
+        this.setColour(230);
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};
+javascript.javascriptGenerator.forBlock['sub'] = function (block, generator) {
+    var a = block.getFieldValue('a');
+    var b = block.getFieldValue('b');
+    var code = a - b;
+    console.log(code);
+    return code;
+};
+Blockly.Blocks['mul'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldNumber(0), "a")
+            .appendField("*")
+            .appendField(new Blockly.FieldNumber(0), "b");
+        this.setColour(230);
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};
+javascript.javascriptGenerator.forBlock['mul'] = function (block, generator) {
+    var a = block.getFieldValue('a');
+    var b = block.getFieldValue('b');
+    var code = a * b;
+    console.log(code);
+    return code;
+};
+Blockly.Blocks['div'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldNumber(0), "a")
+            .appendField("/")
+            .appendField(new Blockly.FieldNumber(0), "b");
+        this.setColour(230);
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};
+javascript.javascriptGenerator.forBlock['div'] = function (block, generator) {
+    var a = block.getFieldValue('a');
+    var b = block.getFieldValue('b');
+    if (b == 0) {
+        return 0;
+    }
+    var code = a / b;
+    console.log(code);
+    return code;
+};
+Blockly.Blocks['And'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldNumber(0), "a")
+            .appendField("and")
+            .appendField(new Blockly.FieldNumber(0), "b");
+        this.setColour(230);
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};
+javascript.javascriptGenerator.forBlock['And'] = function (block, generator) {
+    var a = block.getFieldValue('a');
+    var b = block.getFieldValue('b');
+
+    var code = (a & b);
+    console.log(code);
+    return code;
+};
+Blockly.Blocks['Or'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldNumber(0), "a")
+            .appendField("or")
+            .appendField(new Blockly.FieldNumber(0), "b");
+        this.setColour(230);
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};
+javascript.javascriptGenerator.forBlock['Or'] = function (block, generator) {
+    var a = block.getFieldValue('a');
+    var b = block.getFieldValue('b');
+
+    var code = (a | b);
+    console.log(code);
+    return code;
+};
+Blockly.Blocks['Not'] = {
+    init: function () {
+        this.appendStatementInput("st")
+            .setCheck(null)
+            .appendField("not");
+        this.setColour(123);
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};
+javascript.javascriptGenerator.forBlock['Not'] = function (block, generator) {
+    var st = generator.statementToCode(block, 'st');
+    var code1 = true;
+    var code2 = false;
+    if (st == true) return code2;
+    else return code1;
 };
