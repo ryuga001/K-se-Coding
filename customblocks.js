@@ -746,3 +746,135 @@ javascript.javascriptGenerator.forBlock['Not'] = function (block, generator) {
     if (st == true) return code2;
     else return code1;
 };
+Blockly.Blocks['join'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("join")
+            .appendField(new Blockly.FieldTextInput("apple"), "a")
+            .appendField(new Blockly.FieldTextInput("banana"), "b");
+        this.setColour(230);
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+}
+javascript.javascriptGenerator.forBlock['join'] = function (block, generator) {
+    var a = block.getFieldValue('a');
+    var b = block.getFieldValue('b');
+    var code = alert(a + b);
+    return code;
+};
+Blockly.Blocks['contains'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldTextInput("apple"), "a")
+            .appendField("contains")
+            .appendField(new Blockly.FieldTextInput("a"), "b");
+        this.setColour(230);
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+}
+javascript.javascriptGenerator.forBlock['contains'] = function (block, generator) {
+    var a = block.getFieldValue('a');
+    var b = block.getFieldValue('b');
+    var res = false;
+    for (let i = 0; i < a.length; i++) {
+        if (a[i] == b) {
+            res = true;
+            break;
+        }
+    }
+    var code = alert(res);
+    return code;
+};
+Blockly.Blocks['Length'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("length of ")
+            .appendField(new Blockly.FieldTextInput("apple"), "a")
+        this.setColour(230);
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+}
+javascript.javascriptGenerator.forBlock['Length'] = function (block, generator) {
+    var a = block.getFieldValue('a');
+    var code = alert(a.length);
+    return code;
+};
+Blockly.Blocks['letter'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("letter")
+            .appendField(new Blockly.FieldNumber(1), "x")
+            .appendField("of")
+            .appendField(new Blockly.FieldTextInput("apple"), "a");
+        this.setColour(230);
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};
+javascript.javascriptGenerator.forBlock['letter'] = function (block, generator) {
+    var x = block.getFieldValue('x');
+    var a = block.getFieldValue('a');
+    if (x > a.length || x < 1) return alert('invalid input');
+    var code = alert(a[x - 1]);
+    return code;
+};
+Blockly.Blocks['Vb'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldDropdown([["abs", "abs"], ["floor", "floor"], ["ceiling", "ceiling"], ["sqrt", "sqrt"], ["sin", "sin"], ["cos", "cos"], ["tan", "tan"], ["asin", "asin"], ["acos", "acos"], ["atan", "atan"], ["ln", "ln"], ["log", "log"], ["e^", "expo"], ["10^", "pow"]]), "fun")
+            .appendField("of")
+            .appendField(new Blockly.FieldNumber(0), "x");
+        this.setColour(230);
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};
+javascript.javascriptGenerator.forBlock['Vb'] = function (block, generator) {
+    var fun = block.getFieldValue('fun');
+    var x = block.getFieldValue('x');
+    if (fun == 'abs') {
+        return alert(Math.abs(x));
+    }
+    if (fun == 'floor') {
+        return alert(Math.floor(x));
+    }
+    if (fun == 'ceiling') {
+        return alert(Math.ceil(x));
+    }
+    if (fun == 'sqrt') {
+        return alert(Math.sqrt(x));
+    }
+    if (fun == 'sin') {
+        return alert(Math.sin(x));
+    }
+    if (fun == 'cos') {
+        return alert(Math.cos(x));
+    }
+    if (fun == 'tan') {
+        return alert(Math.tan(x));
+    }
+    if (fun == 'asin') {
+        return alert(Math.asin(x));
+    }
+    if (fun == 'acos') {
+        return alert(Math.acos(x));
+    }
+    if (fun == 'atan') {
+        return alert(Math.atan(x));
+    }
+    if (fun == 'ln') {
+        return alert(Math.ln(x));
+    }
+    if (fun == 'log') {
+        return alert(Math.log(x));
+    }
+    if (fun == 'expo') {
+        return alert(Math.exp(x));
+    }
+    if (fun == 'pow') {
+        return alert(Math.pow(10, x));
+    }
+};
