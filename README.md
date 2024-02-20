@@ -2,7 +2,7 @@
 
 This is a blocked based coding learning platform in <b>Hindi</b> , it helps to build logic and illustrate the basic programms.
 
-Sample Frontend live link : https://blocklyworkspace.netlify.app/
+Sample Frontend live link : https://k-se-coding.netlify.app/
 
 <h1 align="center">
 Blockly Samples <br /> <a href="https://github.com/google/blockly"><img src="https://tinyurl.com/built-on-blockly" /> </a>
