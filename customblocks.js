@@ -106,48 +106,48 @@ Blockly.Blocks['changex'] = {
         this.setHelpUrl("");
     }
 };
-Blockly.JavaScript['move_right'] = function (block) {
+javascript.javascriptGenerator.forBlock['move_right'] = function (block) {
     var number_pos = block.getFieldValue('pos');
     var ip = document.getElementById("image_style").offsetLeft + number_pos;
     var code = `document.getElementById("image_style").style.left = ${ip} + "px" ; \n`
     return code;
 };
-Blockly.JavaScript['move_up'] = function (block) {
+javascript.javascriptGenerator.forBlock['move_up'] = function (block) {
     var number_pos = -block.getFieldValue('pos');
     var ip = document.getElementById("image_style").offsetTop + number_pos;
     var code = `document.getElementById("image_style").style.top = ${ip} + "px" ; \n`
     return code;
 };
-Blockly.JavaScript['move_down'] = function (block) {
+javascript.javascriptGenerator.forBlock['move_down'] = function (block) {
     var number_pos = block.getFieldValue('pos');
     var ip = document.getElementById("image_style").offsetTop + number_pos;
     var code = `document.getElementById("image_style").style.top = ${ip} + "px" ; \n`
     return code;
 };
-Blockly.JavaScript['Go_To_Block'] = function (block) {
+javascript.javascriptGenerator.forBlock['Go_To_Block'] = function (block) {
     var x = block.getFieldValue('X_cordinate');
     var y = block.getFieldValue('Y_cordinate');
     var code = `document.getElementById("image_style").style.left = ${x} + "px" ;
     document.getElementById("image_style").style.top = ${y} + "px" ;`
     return code;
 };
-Blockly.JavaScript['set_directionx'] = function (block) {
+javascript.javascriptGenerator.forBlock['set_directionx'] = function (block) {
     var x = block.getFieldValue('x-cordinate');
     var code = `document.getElementById("image_style").style.left = ${x} + "px"`;
     return code;
 };
-Blockly.JavaScript['set_directiony'] = function (block) {
+javascript.javascriptGenerator.forBlock['set_directiony'] = function (block) {
     var y = block.getFieldValue('y-cordinate');
     var code = `document.getElementById("image_style").style.top = ${y} + "px"`;
     return code;
 };
-Blockly.JavaScript['changey'] = function (block) {
+javascript.javascriptGenerator.forBlock['changey'] = function (block) {
     var y = block.getFieldValue('value');
     var ip = document.getElementById("image_style").offsetTop - y;
     var code = `document.getElementById("image_style").style.top = ${ip} + "px" ; \n`
     return code;
 };
-Blockly.JavaScript['changex'] = function (block) {
+javascript.javascriptGenerator.forBlock['changex'] = function (block) {
     var x = block.getFieldValue('value');
     var ip = document.getElementById("image_style").offsetLeft + x;
     var code = `document.getElementById("image_style").style.left = ${ip} + "px" ; \n`
@@ -169,7 +169,7 @@ Blockly.Blocks['_rotate_clockwise'] = {
     }
 };
 let angle_rotate_clockwise = 0;
-Blockly.JavaScript['_rotate_clockwise'] = function (block) {
+javascript.javascriptGenerator.forBlock['_rotate_clockwise'] = function (block) {
     var x = block.getFieldValue('angle_input');
     angle_rotate_clockwise += x;
     var code = `document.getElementById("image_style").style.transform= 'rotate(${angle_rotate_clockwise}deg)'`;
@@ -202,7 +202,7 @@ Blockly.Blocks['flip'] = {
     }
 };
 
-Blockly.JavaScript['flip'] = function (block) {
+javascript.javascriptGenerator.forBlock['flip'] = function (block) {
     document.getElementById("image_style").classList.remove("flip");
 
     var option = block.getFieldValue('option');
@@ -221,7 +221,7 @@ Blockly.JavaScript['flip'] = function (block) {
 };
 
 let angle_rotate_anti_clockwise = 0;
-Blockly.JavaScript['_rotate_anti_clockwise'] = function (block) {
+javascript.javascriptGenerator.forBlock['_rotate_anti_clockwise'] = function (block) {
     var x = -block.getFieldValue('angle_input');
     angle_rotate_anti_clockwise += x;
     var code = `document.getElementById("image_style").style.transform = 'rotate(${angle_rotate_anti_clockwise}deg)'`;
@@ -271,7 +271,7 @@ Blockly.Blocks['print'] = {
         this.setHelpUrl("");
     }
 };
-Blockly.JavaScript['print'] = function (block) {
+javascript.javascriptGenerator.forBlock['print'] = function (block) {
 
 
     // TODO: Assemble JavaScript into code variable.
@@ -315,7 +315,7 @@ Blockly.Blocks['say'] = {
         this.setHelpUrl("");
     }
 };
-Blockly.JavaScript['say'] = function (block) {
+javascript.javascriptGenerator.forBlock['say'] = function (block) {
     // var text = block.getFieldValue('text');
     const fun = () => {
         var text = block.getFieldValue('text');
@@ -357,7 +357,7 @@ Blockly.Blocks['think'] = {
         this.setHelpUrl("");
     }
 };
-Blockly.JavaScript['think'] = function (block) {
+javascript.javascriptGenerator.forBlock['think'] = function (block) {
 
 
     // TODO: Assemble JavaScript into code variable.
@@ -401,7 +401,7 @@ Blockly.Blocks['thinkaloud'] = {
         this.setHelpUrl("");
     }
 };
-Blockly.JavaScript['thinkaloud'] = function (block) {
+javascript.javascriptGenerator.forBlock['thinkaloud'] = function (block) {
     // var text = block.getFieldValue('text');
     const fun = () => {
         var text = block.getFieldValue('text');
@@ -455,12 +455,12 @@ Blockly.Blocks['if_else'] = {
         this.setHelpUrl("");
     }
 };
-Blockly.JavaScript['if_else'] = function (block) {
+javascript.javascriptGenerator.forBlock['if_else'] = function (block) {
     ClearCanva();
     var x = block.getFieldValue('x');
     var y = block.getFieldValue('y');
-    var st = Blockly.JavaScript.statementToCode(block, 'st');
-    var st2 = Blockly.JavaScript.statementToCode(block, 'st2');
+    var st = javascript.javascriptGenerator.forBlock.statementToCode(block, 'st');
+    var st2 = javascript.javascriptGenerator.forBlock.statementToCode(block, 'st2');
     if (x > y) {
         return st;
     }
@@ -483,11 +483,11 @@ Blockly.Blocks['if'] = {
         this.setHelpUrl("");
     }
 };
-Blockly.JavaScript['if'] = function (block) {
+javascript.javascriptGenerator.forBlock['if'] = function (block) {
     ClearCanva();
     var x = block.getFieldValue('x');
     var y = block.getFieldValue('y');
-    var st = Blockly.JavaScript.statementToCode(block, 'st');
+    var st = javascript.javascriptGenerator.forBlock.statementToCode(block, 'st');
     if (x > y) {
         return st;
     }
@@ -536,9 +536,9 @@ Blockly.Blocks['repeat'] = {
         this.setHelpUrl("");
     }
 };
-Blockly.JavaScript['repeat'] = function (block) {
+javascript.javascriptGenerator.forBlock['repeat'] = function (block) {
     var i = block.getFieldValue('i');
-    var st = Blockly.JavaScript.statementToCode(block, 'st');
+    var st = javascript.javascriptGenerator.forBlock.statementToCode(block, 'st');
     return st;
 };
 
